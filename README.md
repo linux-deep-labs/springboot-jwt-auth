@@ -498,8 +498,8 @@ Authorization: Bearer <ACCESS_TOKEN>
 
 ## License
 
-ระบุ License ของโปรเจกต์ตามเงื่อนไขการใช้งานจริง
+NNUXX@linux-deep-labs
 
 ## Author
 
-ระบุชื่อผู้พัฒนาและช่องทางติดต่อ หากต้องการเผยแพร่ Repository
+Linuxxxxx@gmail.com
