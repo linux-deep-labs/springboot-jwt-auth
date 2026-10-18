@@ -1,5 +1,5 @@
 
-package com.example.auth.dto.common;
+package com.example.auth.common;
 
 import java.time.OffsetDateTime;
 import java.util.Map;
