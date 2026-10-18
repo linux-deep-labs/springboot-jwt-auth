@@ -1,12 +1,14 @@
 
-package com.example.auth.service;
+package com.example.auth.service.role;
 
 import com.example.auth.dto.role.RoleRequest;
 import com.example.auth.dto.role.RoleResponse;
+import com.example.auth.dto.role.RoleUpdateRequest;
 import com.example.auth.entity.Role;
 import com.example.auth.exception.DuplicateResourceException;
 import com.example.auth.exception.ResourceNotFoundException;
 import com.example.auth.repository.RoleRepository;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -57,7 +59,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     @Transactional
-    public RoleResponse update(Long id, RoleRequest request) {
+    public RoleResponse update(Long id, @Valid RoleUpdateRequest request) {
 
         Role role = findRoleById(id);
         String name = request.name().trim();
