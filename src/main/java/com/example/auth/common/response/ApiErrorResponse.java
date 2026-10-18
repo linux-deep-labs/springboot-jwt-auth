@@ -1,5 +1,5 @@
 
-package com.example.auth.common;
+package com.example.auth.common.response;
 
 import java.time.OffsetDateTime;
 import java.util.Map;

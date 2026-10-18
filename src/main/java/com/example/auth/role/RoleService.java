@@ -1,8 +1,8 @@
-package com.example.auth.service.role;
+package com.example.auth.role;
 
-import com.example.auth.dto.role.RoleRequest;
-import com.example.auth.dto.role.RoleResponse;
-import com.example.auth.dto.role.RoleUpdateRequest;
+import com.example.auth.role.dto.RoleRequest;
+import com.example.auth.role.dto.RoleResponse;
+import com.example.auth.role.dto.RoleUpdateRequest;
 import jakarta.validation.Valid;
 
 import java.util.List;

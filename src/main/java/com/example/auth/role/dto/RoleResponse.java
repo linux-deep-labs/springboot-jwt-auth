@@ -1,4 +1,4 @@
-package com.example.auth.dto.role;
+package com.example.auth.role.dto;
 
 import java.time.OffsetDateTime;
 

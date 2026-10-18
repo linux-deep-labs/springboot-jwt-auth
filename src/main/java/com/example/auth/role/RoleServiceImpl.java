@@ -1,13 +1,13 @@
 
-package com.example.auth.service.role;
+package com.example.auth.role;
 
-import com.example.auth.dto.role.RoleRequest;
-import com.example.auth.dto.role.RoleResponse;
-import com.example.auth.dto.role.RoleUpdateRequest;
+import com.example.auth.role.dto.RoleRequest;
+import com.example.auth.role.dto.RoleResponse;
+import com.example.auth.role.dto.RoleUpdateRequest;
 import com.example.auth.entity.Role;
 import com.example.auth.exception.DuplicateResourceException;
 import com.example.auth.exception.ResourceNotFoundException;
-import com.example.auth.repository.RoleRepository;
+import com.example.auth.role.RoleRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

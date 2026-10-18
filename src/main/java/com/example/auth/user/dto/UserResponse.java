@@ -1,5 +1,5 @@
 
-package com.example.auth.dto.user;
+package com.example.auth.user.dto;
 
 import com.example.auth.entity.User;
 import lombok.Getter;

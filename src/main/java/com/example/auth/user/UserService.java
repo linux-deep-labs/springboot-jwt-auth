@@ -1,9 +1,9 @@
 
-package com.example.auth.service.user;
+package com.example.auth.user;
 
-import com.example.auth.dto.user.UserRequest;
-import com.example.auth.dto.user.UserResponse;
-import com.example.auth.dto.user.UserUpdateRequest;
+import com.example.auth.user.dto.UserRequest;
+import com.example.auth.user.dto.UserResponse;
+import com.example.auth.user.dto.UserUpdateRequest;
 
 import java.util.List;
 

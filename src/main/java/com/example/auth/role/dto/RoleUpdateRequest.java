@@ -1,5 +1,5 @@
 
-package com.example.auth.dto.role;
+package com.example.auth.role.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

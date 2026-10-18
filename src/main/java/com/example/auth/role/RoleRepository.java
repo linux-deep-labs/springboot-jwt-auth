@@ -1,4 +1,4 @@
-package com.example.auth.repository;
+package com.example.auth.role;
 
 import com.example.auth.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;

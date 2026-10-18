@@ -1,10 +1,10 @@
 
-package com.example.auth.controller;
+package com.example.auth.role;
 
-import com.example.auth.dto.role.RoleRequest;
-import com.example.auth.dto.role.RoleResponse;
-import com.example.auth.dto.role.RoleUpdateRequest;
-import com.example.auth.service.role.RoleService;
+import com.example.auth.role.dto.RoleRequest;
+import com.example.auth.role.dto.RoleResponse;
+import com.example.auth.role.dto.RoleUpdateRequest;
+import com.example.auth.role.RoleService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
