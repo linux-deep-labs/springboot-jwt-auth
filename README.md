@@ -113,152 +113,96 @@ PostgreSQL
 
 ```text
 
+
 src/
-├── main/
-│   ├── java/com/example/auth/
-│   │   ├── AuthApplication.java
-│   │   │
-│   │   ├── config/
-│   │   │   ├── SecurityConfig.java
-│   │   │   ├── JpaConfig.java
-│   │   │   ├── OpenApiConfig.java
-│   │   │   └── JacksonConfig.java
-│   │   │
-│   │   ├── security/
-│   │   │   ├── filter/
-│   │   │   │   └── JwtAuthenticationFilter.java
-│   │   │   ├── handler/
-│   │   │   │   ├── JwtAuthenticationEntryPoint.java
-│   │   │   │   └── CustomAccessDeniedHandler.java
-│   │   │   ├── principal/
-│   │   │   │   └── CustomUserDetails.java
-│   │   │   └── service/
-│   │   │       └── CustomUserDetailsService.java
-│   │   │
-│   │   ├── auth/
-│   │   │   ├── controller/
-│   │   │   │   └── AuthController.java
-│   │   │   ├── service/
-│   │   │   │   ├── AuthService.java
-│   │   │   │   └── JwtService.java
-│   │   │   └── dto/
-│   │   │       ├── request/
-│   │   │       │   ├── LoginRequest.java
-│   │   │       │   └── RefreshTokenRequest.java
-│   │   │       └── response/
-│   │   │           └── LoginResponse.java
-│   │   │
-│   │   ├── user/
-│   │   │   ├── controller/
-│   │   │   │   └── UserController.java
-│   │   │   ├── service/
-│   │   │   │   └── UserService.java
-│   │   │   ├── repository/
-│   │   │   │   └── UserRepository.java
-│   │   │   ├── entity/
-│   │   │   │   └── User.java
-│   │   │   └── dto/
-│   │   │       ├── request/
-│   │   │       │   ├── CreateUserRequest.java
-│   │   │       │   └── UpdateUserRequest.java
-│   │   │       └── response/
-│   │   │           └── UserResponse.java
-│   │   │
-│   │   ├── role/
-│   │   │   ├── controller/
-│   │   │   │   └── RoleController.java
-│   │   │   ├── service/
-│   │   │   │   └── RoleService.java
-│   │   │   ├── repository/
-│   │   │   │   └── RoleRepository.java
-│   │   │   ├── entity/
-│   │   │   │   └── Role.java
-│   │   │   └── dto/
-│   │   │       ├── request/
-│   │   │       │   └── RoleRequest.java
-│   │   │       └── response/
-│   │   │           └── RoleResponse.java
-│   │   │
-│   │   ├── userrole/
-│   │   │   ├── controller/
-│   │   │   │   └── UserRoleController.java
-│   │   │   ├── service/
-│   │   │   │   └── UserRoleService.java
-│   │   │   └── dto/
-│   │   │       └── AssignRoleRequest.java
-│   │   │
-│   │   ├── session/
-│   │   │   ├── controller/
-│   │   │   │   └── SessionController.java
-│   │   │   ├── service/
-│   │   │   │   └── SessionService.java
-│   │   │   ├── repository/
-│   │   │   │   └── SessionRepository.java
-│   │   │   ├── entity/
-│   │   │   │   └── UserSession.java
-│   │   │   └── dto/
-│   │   │       ├── SessionFilterRequest.java
-│   │   │       └── SessionResponse.java
-│   │   │
-│   │   ├── token/
-│   │   │   ├── controller/
-│   │   │   │   └── TokenMonitorController.java
-│   │   │   ├── service/
-│   │   │   │   └── TokenMonitorService.java
-│   │   │   └── dto/
-│   │   │       └── TokenMonitorResponse.java
-│   │   │
-│   │   ├── loginlog/
-│   │   │   ├── controller/
-│   │   │   │   └── LoginLogController.java
-│   │   │   ├── service/
-│   │   │   │   └── LoginLogService.java
-│   │   │   ├── repository/
-│   │   │   │   └── LoginLogRepository.java
-│   │   │   ├── entity/
-│   │   │   │   └── LoginLog.java
-│   │   │   └── dto/
-│   │   │       ├── LoginLogFilterRequest.java
-│   │   │       └── LoginLogResponse.java
-│   │   │
-│   │   ├── audit/
-│   │   │   ├── service/
-│   │   │   │   └── AuditLogService.java
-│   │   │   ├── repository/
-│   │   │   │   └── AuditLogRepository.java
-│   │   │   └── entity/
-│   │   │       └── AuditLog.java
-│   │   │
-│   │   ├── common/
-│   │   │   ├── response/
-│   │   │   │   └── ApiResponse.java
-│   │   │   ├── exception/
-│   │   │   │   ├── GlobalExceptionHandler.java
-│   │   │   │   └── ResourceNotFoundException.java
-│   │   │   ├── enums/
-│   │   │   │   └── SessionStatus.java
-│   │   │   ├── constant/
-│   │   │   └── util/
-│   │   │
-│   │   └── monitoring/
-│   │       └── service/
-│   │           └── MonitoringService.java
-│   │
-│   └── resources/
-│       ├── application.yml
-│       ├── application-dev.yml
-│       ├── application-prod.yml
-│       └── db/
-│           └── migration/
-│
-└── test/
-    └── java/com/example/auth/
-        ├── auth/
-        ├── user/
-        ├── role/
-        ├── session/
-        ├── token/
-        └── loginlog/
+└── main/
+    ├── java/com/example/auth/
+    │   ├── AuthApplication.java
+    │   │
+    │   ├── config/
+    │   │   ├── SecurityConfig.java
+    │   │   ├── JpaConfig.java
+    │   │   └── OpenApiConfig.java
+    │   │
+    │   ├── security/
+    │   │   ├── JwtAuthenticationFilter.java
+    │   │   ├── JwtAuthenticationEntryPoint.java
+    │   │   ├── CustomAccessDeniedHandler.java
+    │   │   ├── CustomUserDetails.java
+    │   │   └── CustomUserDetailsService.java
+    │   │
+    │   ├── auth/
+    │   │   ├── AuthController.java
+    │   │   ├── AuthService.java
+    │   │   ├── JwtService.java
+    │   │   └── dto/
+    │   │       ├── LoginRequest.java
+    │   │       ├── RefreshTokenRequest.java
+    │   │       └── LoginResponse.java
+    │   │
+    │   ├── user/
+    │   │   ├── UserController.java
+    │   │   ├── UserService.java
+    │   │   ├── UserRepository.java
+    │   │   ├── User.java
+    │   │   └── dto/
+    │   │       ├── CreateUserRequest.java
+    │   │       ├── UpdateUserRequest.java
+    │   │       └── UserResponse.java
+    │   │
+    │   ├── role/
+    │   │   ├── RoleController.java
+    │   │   ├── RoleService.java
+    │   │   ├── RoleRepository.java
+    │   │   └── Role.java
+    │   │
+    │   ├── userrole/
+    │   │   ├── UserRoleService.java
+    │   │   ├── UserRoleRepository.java
+    │   │   └── UserRole.java
+    │   │
+    │   ├── session/
+    │   │   ├── SessionController.java
+    │   │   ├── SessionService.java
+    │   │   ├── SessionRepository.java
+    │   │   ├── UserSession.java
+    │   │   └── dto/
+    │   │       └── SessionResponse.java
+    │   │
+    │   ├── token/
+    │   │   ├── TokenMonitorController.java
+    │   │   ├── TokenMonitorService.java
+    │   │   └── dto/
+    │   │       └── TokenMonitorResponse.java
+    │   │
+    │   ├── loginlog/
+    │   │   ├── LoginLogController.java
+    │   │   ├── LoginLogService.java
+    │   │   ├── LoginLogRepository.java
+    │   │   ├── LoginLog.java
+    │   │   └── dto/
+    │   │       ├── LoginLogFilterRequest.java
+    │   │       └── LoginLogResponse.java
+    │   │
+    │   ├── common/
+    │   │   ├── exception/
+    │   │   │   └── GlobalExceptionHandler.java
+    │   │   ├── response/
+    │   │   │   └── ApiResponse.java
+    │   │   └── enums/
+    │   │       ├── UserStatus.java
+    │   │       ├── LoginEventType.java
+    │   │       └── SessionStatus.java
+    │   │
+    │   └── audit/
+    │       ├── AuditLogService.java
+    │       └── AuditEvent.java
+    │
+    └── resources/
+        ├── application.yml
+        ├── application-dev.yml
+        └── db/
+            └── migration/
 
 src/test/
 └── java/com/example/auth/
