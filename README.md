@@ -112,66 +112,153 @@ PostgreSQL
 ## Project Structure
 
 ```text
+
 src/
-└── main/
-    ├── java/com/example/auth/
-    │   ├── AuthApplication.java
-    │   │
-    │   ├── config/
-    │   │   ├── SecurityConfig.java
-    │   │   ├── JpaConfig.java
-    │   │   └── OpenApiConfig.java
-    │   │
-    │   ├── security/
-    │   │   ├── JwtAuthenticationFilter.java
-    │   │   ├── JwtAuthenticationEntryPoint.java
-    │   │   ├── CustomUserDetailsService.java
-    │   │   └── CustomUserDetails.java
-    │   │
-    │   ├── controller/
-    │   │   ├── AuthController.java
-    │   │   └── UserController.java
-    │   │
-    │   ├── service/
-    │   │   ├── AuthService.java
-    │   │   ├── JwtService.java
-    │   │   ├── SessionService.java
-    │   │   └── LoginLogService.java
-    │   │
-    │   ├── repository/
-    │   │   ├── UserRepository.java
-    │   │   ├── RoleRepository.java
-    │   │   ├── SessionRepository.java
-    │   │   └── LoginLogRepository.java
-    │   │
-    │   ├── entity/
-    │   │   ├── User.java
-    │   │   ├── Role.java
-    │   │   ├── UserRole.java
-    │   │   ├── UserSession.java
-    │   │   └── LoginLog.java
-    │   │
-    │   ├── dto/
-    │   │   ├── request/
-    │   │   │   ├── LoginRequest.java
-    │   │   │   └── RefreshTokenRequest.java
-    │   │   └── response/
-    │   │       ├── LoginResponse.java
-    │   │       └── UserProfileResponse.java
-    │   │
-    │   ├── exception/
-    │   │   ├── GlobalExceptionHandler.java
-    │   │   ├── InvalidCredentialsException.java
-    │   │   └── ResourceNotFoundException.java
-    │   │
-    │   └── common/
-    │       ├── constant/
-    │       ├── enums/
-    │       └── util/
-    │
-    └── resources/
-        ├── application.yml
-        └── application-dev.yml
+├── main/
+│   ├── java/com/example/auth/
+│   │   ├── AuthApplication.java
+│   │   │
+│   │   ├── config/
+│   │   │   ├── SecurityConfig.java
+│   │   │   ├── JpaConfig.java
+│   │   │   ├── OpenApiConfig.java
+│   │   │   └── JacksonConfig.java
+│   │   │
+│   │   ├── security/
+│   │   │   ├── filter/
+│   │   │   │   └── JwtAuthenticationFilter.java
+│   │   │   ├── handler/
+│   │   │   │   ├── JwtAuthenticationEntryPoint.java
+│   │   │   │   └── CustomAccessDeniedHandler.java
+│   │   │   ├── principal/
+│   │   │   │   └── CustomUserDetails.java
+│   │   │   └── service/
+│   │   │       └── CustomUserDetailsService.java
+│   │   │
+│   │   ├── auth/
+│   │   │   ├── controller/
+│   │   │   │   └── AuthController.java
+│   │   │   ├── service/
+│   │   │   │   ├── AuthService.java
+│   │   │   │   └── JwtService.java
+│   │   │   └── dto/
+│   │   │       ├── request/
+│   │   │       │   ├── LoginRequest.java
+│   │   │       │   └── RefreshTokenRequest.java
+│   │   │       └── response/
+│   │   │           └── LoginResponse.java
+│   │   │
+│   │   ├── user/
+│   │   │   ├── controller/
+│   │   │   │   └── UserController.java
+│   │   │   ├── service/
+│   │   │   │   └── UserService.java
+│   │   │   ├── repository/
+│   │   │   │   └── UserRepository.java
+│   │   │   ├── entity/
+│   │   │   │   └── User.java
+│   │   │   └── dto/
+│   │   │       ├── request/
+│   │   │       │   ├── CreateUserRequest.java
+│   │   │       │   └── UpdateUserRequest.java
+│   │   │       └── response/
+│   │   │           └── UserResponse.java
+│   │   │
+│   │   ├── role/
+│   │   │   ├── controller/
+│   │   │   │   └── RoleController.java
+│   │   │   ├── service/
+│   │   │   │   └── RoleService.java
+│   │   │   ├── repository/
+│   │   │   │   └── RoleRepository.java
+│   │   │   ├── entity/
+│   │   │   │   └── Role.java
+│   │   │   └── dto/
+│   │   │       ├── request/
+│   │   │       │   └── RoleRequest.java
+│   │   │       └── response/
+│   │   │           └── RoleResponse.java
+│   │   │
+│   │   ├── userrole/
+│   │   │   ├── controller/
+│   │   │   │   └── UserRoleController.java
+│   │   │   ├── service/
+│   │   │   │   └── UserRoleService.java
+│   │   │   └── dto/
+│   │   │       └── AssignRoleRequest.java
+│   │   │
+│   │   ├── session/
+│   │   │   ├── controller/
+│   │   │   │   └── SessionController.java
+│   │   │   ├── service/
+│   │   │   │   └── SessionService.java
+│   │   │   ├── repository/
+│   │   │   │   └── SessionRepository.java
+│   │   │   ├── entity/
+│   │   │   │   └── UserSession.java
+│   │   │   └── dto/
+│   │   │       ├── SessionFilterRequest.java
+│   │   │       └── SessionResponse.java
+│   │   │
+│   │   ├── token/
+│   │   │   ├── controller/
+│   │   │   │   └── TokenMonitorController.java
+│   │   │   ├── service/
+│   │   │   │   └── TokenMonitorService.java
+│   │   │   └── dto/
+│   │   │       └── TokenMonitorResponse.java
+│   │   │
+│   │   ├── loginlog/
+│   │   │   ├── controller/
+│   │   │   │   └── LoginLogController.java
+│   │   │   ├── service/
+│   │   │   │   └── LoginLogService.java
+│   │   │   ├── repository/
+│   │   │   │   └── LoginLogRepository.java
+│   │   │   ├── entity/
+│   │   │   │   └── LoginLog.java
+│   │   │   └── dto/
+│   │   │       ├── LoginLogFilterRequest.java
+│   │   │       └── LoginLogResponse.java
+│   │   │
+│   │   ├── audit/
+│   │   │   ├── service/
+│   │   │   │   └── AuditLogService.java
+│   │   │   ├── repository/
+│   │   │   │   └── AuditLogRepository.java
+│   │   │   └── entity/
+│   │   │       └── AuditLog.java
+│   │   │
+│   │   ├── common/
+│   │   │   ├── response/
+│   │   │   │   └── ApiResponse.java
+│   │   │   ├── exception/
+│   │   │   │   ├── GlobalExceptionHandler.java
+│   │   │   │   └── ResourceNotFoundException.java
+│   │   │   ├── enums/
+│   │   │   │   └── SessionStatus.java
+│   │   │   ├── constant/
+│   │   │   └── util/
+│   │   │
+│   │   └── monitoring/
+│   │       └── service/
+│   │           └── MonitoringService.java
+│   │
+│   └── resources/
+│       ├── application.yml
+│       ├── application-dev.yml
+│       ├── application-prod.yml
+│       └── db/
+│           └── migration/
+│
+└── test/
+    └── java/com/example/auth/
+        ├── auth/
+        ├── user/
+        ├── role/
+        ├── session/
+        ├── token/
+        └── loginlog/
 
 src/test/
 └── java/com/example/auth/
