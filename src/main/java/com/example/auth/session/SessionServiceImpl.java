@@ -1,6 +1,7 @@
 
 package com.example.auth.session;
 
+import com.example.auth.entity.User;
 import com.example.auth.entity.UserSession;
 import com.example.auth.session.dto.SessionResponse;
 import org.springframework.stereotype.Service;
@@ -91,5 +92,15 @@ public class SessionServiceImpl implements SessionService {
         }
 
         return "ACTIVE";
+    }
+
+    @Override
+    @Transactional
+    public UserSession createSession(User user) {
+        // ต้องกำหนดค่าฟิลด์ที่จำเป็นของ UserSession
+        // ก่อนบันทึกผ่าน sessionRepository
+        throw new UnsupportedOperationException(
+                "createSession implementation requires UserSession fields"
+        );
     }
 }

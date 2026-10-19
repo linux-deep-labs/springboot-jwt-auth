@@ -1,4 +1,3 @@
-
 package com.example.auth.auth;
 
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,4 +9,6 @@ public interface JwtService {
     String generateAccessToken(UserDetails userDetails);
 
     Instant getAccessTokenExpiration();
+
+    Long getAccessTokenExpirationSeconds();
 }
