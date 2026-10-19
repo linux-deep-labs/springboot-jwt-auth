@@ -1,5 +1,5 @@
 
-package com.example.auth.exception;
+package com.example.auth.common.exception;
 
 public class DuplicateResourceException extends RuntimeException {
 

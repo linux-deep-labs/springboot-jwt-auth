@@ -4,7 +4,7 @@ package com.example.auth.user;
 import com.example.auth.user.dto.UserRequest;
 import com.example.auth.user.dto.UserResponse;
 import com.example.auth.user.dto.UserUpdateRequest;
-import com.example.auth.service.user.UserService;
+import com.example.auth.user.UserService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

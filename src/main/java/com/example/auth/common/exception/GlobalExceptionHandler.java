@@ -1,7 +1,7 @@
 
-package com.example.auth.exception;
+package com.example.auth.common.exception;
 
-import com.example.auth.dto.common.ApiErrorResponse;
+import com.example.auth.common.response.ApiErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

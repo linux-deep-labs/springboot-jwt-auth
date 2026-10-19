@@ -1,5 +1,6 @@
 package com.example.auth.entity;
 
+import com.example.auth.common.enums.SessionStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -11,6 +12,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import java.net.InetAddress;
 import java.time.OffsetDateTime;
 import java.util.UUID;
+
 
 @Getter
 @Setter
@@ -56,6 +58,12 @@ public class UserSession {
     @ColumnDefault("now()")
     @Column(name = "updated_at", nullable = false)
     private OffsetDateTime updatedAt;
+
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false, length = 20)
+    private SessionStatus status = SessionStatus.ACTIVE;
+
 
 
 }
